@@ -1,0 +1,125 @@
+@mixin h-anchors
+  background-color: transparent
+  font-size: 14px
+  color: #fff
+  border-radius: 5px
+  padding: 5px
+  &:hover
+    background-color: #000
+    color: #fff
+    text-decoration: none
+  span
+    color: #ccc
+
+html
+  overflow: scroll
+
+html *
+  margin: 0
+  padding: 0
+  box-sizing: border-box
+
+header
+  width: 100%
+  height: 113px
+
+.header-container
+  background-color: rgb(34, 34, 34)
+  padding: 0 5%
+
+.header-anchors
+  @include h-anchors
+
+.header-left
+  height: 100%
+
+.h1
+  height: 100%
+
+#header-span-1
+  color: #999
+
+#header-span:hover
+  color: #fff
+
+nav
+  display: block
+  min-height: 70px
+  padding: 20px 5% 15px
+
+.nav-left
+  width: 100%
+  padding: 10px
+  img
+    width: auto
+    height: auto
+    max-height: 76px
+
+.nav-right
+  width: 100%
+  height: 50px
+  ul
+    list-style: none
+    li
+      margin: 0 15px
+      a
+        display: block
+        text-transform: uppercase
+        text-shadow: 0 0 0.8px black, 0 0 0.8px black, 0 0 0.8px black, 0 0 0.8px black, 0 0 0.8px black
+        background: transparent
+        color: #efeeec
+        font-size: 16px
+        font-weight: 600
+        font-family: "opensans-bold", sans-serif
+        padding: 0
+        line-height: 76px
+        position: relative
+        letter-spacing: 0.5px
+        -webkit-transition: all 0.3s ease-in-out 0s
+        -khtml-transition: all 0.3s ease-in-out 0s
+        -moz-transition: all 0.3s ease-in-out 0s
+        -ms-transition: all 0.3s ease-in-out 0s
+        -o-transition: all 0.3s ease-in-out 0s
+        transition: all 0.3s ease-in-out 0s
+
+        &::after
+          -webkit-transition: width 0.3s ease-in-out 0s
+          -khtml-transition: width 0.3s ease-in-out 0s
+          -moz-transition: width 0.3s ease-in-out 0s
+          -ms-transition: width 0.3s ease-in-out 0s
+          -o-transition: width 0.3s ease-in-out 0s
+          transition: width 0.3s ease-in-out 0s
+          content: ""
+          display: block
+          height: 2px
+          position: absolute
+          bottom: 19px
+          left: 0
+          width: 0
+          background: #f1862e
+
+        &:hover
+          color: #efeeec
+          text-decoration: none
+          &::after
+            width: 100%
+
+.background-100
+  position: relative
+  width: 100vw
+  height: 100vh
+  top: -131px
+  left: 0
+  z-index: -2
+  img
+    width: 100%
+    height: 100%
+
+.background-100-layer
+  position: absolute
+  width: 100vw
+  height: 100vh
+  top: -17px
+  left: 0
+  z-index: -1
+  background-color: rgba(0, 0, 0, 0.2)
