@@ -9,7 +9,28 @@
     color: #fff
     text-decoration: none
   span
-    color: #ccc  
+    color: #ccc
+
+@mixin field
+  transition: all 0.5s ease-out 0s
+  position: relative
+  -webkit-transition: all 0.5s ease-out 0s
+  -moz-transition: all 0.5s ease-out 0s
+  -o-transition: all 0.5s ease-out 0s
+  margin-bottom: 10px
+
+@mixin anchor-transition
+  -webkit-transition: all 0.3s ease-in-out 0s
+  -khtml-transition: all 0.3s ease-in-out 0s
+  -moz-transition: all 0.3s ease-in-out 0s
+  -ms-transition: all 0.3s ease-in-out 0s
+  -o-transition: all 0.3s ease-in-out 0s
+  transition: all 0.3s ease-in-out 0s
+
+@mixin width-fit-content
+  width: -webkit-fit-content
+  width: -moz-fit-content
+  width: fit-content
 
 html *  
   margin: 0 
@@ -17,19 +38,20 @@ html *
   -webkit-box-sizing: border-box 
   box-sizing: border-box   
 
-body  
-  width: 100%   
+body
+  width: 100%
 
 header  
   width: 100% 
-  height: 113px   
+  height: 113px
 
 .header-container  
   background-color: #222222 
   padding: 0 5%
   display: flex
   flex-wrap: wrap
-  justify-content: space-between    
+  justify-content: space-between
+  height: 43px
 
 .header-anchors  
   background-color: transparent 
@@ -47,6 +69,9 @@ header
 
 .header-left  
   height: 100%   
+
+.header-right
+  display: flex
 
 .h1  
   height: 100% 
@@ -98,20 +123,10 @@ nav
         line-height: 76px 
         position: relative 
         letter-spacing: 0.5px 
-        -webkit-transition: all 0.3s ease-in-out 0s 
-        -khtml-transition: all 0.3s ease-in-out 0s 
-        -moz-transition: all 0.3s ease-in-out 0s 
-        -ms-transition: all 0.3s ease-in-out 0s 
-        -o-transition: all 0.3s ease-in-out 0s 
-        transition: all 0.3s ease-in-out 0s
+        @include anchor-transition
         text-decoration: none
         &::after
-          -webkit-transition: width 0.3s ease-in-out 0s 
-          -khtml-transition: width 0.3s ease-in-out 0s 
-          -moz-transition: width 0.3s ease-in-out 0s 
-          -ms-transition: width 0.3s ease-in-out 0s 
-          -o-transition: width 0.3s ease-in-out 0s 
-          transition: width 0.3s ease-in-out 0s 
+          @include anchor-transition
           content: "" 
           display: block 
           height: 2px 
@@ -132,9 +147,10 @@ nav
   height: 100vh 
   top: -131px 
   left: 0 
-  z-index: -2   
+  z-index: -2
+  margin-bottom: -131px
   img
-    width: 100% 
+    width: 100%
     height: 100%   
 
 .background-100-layer  
@@ -163,8 +179,64 @@ nav
 
 .background-blue 
   background-color: #2980b9 
-  width: -webkit-fit-content
-  width: -moz-fit-content 
-  width: fit-content 
+  @include width-fit-content
   padding: 0 5px 5px 5px 
   line-height: 1
+
+.field-item
+  @include field
+  min-height: calc((100vh - 155px) / 2)
+  height: calc((100vh - 155px) / 2)
+  background-color: rgb(random(255), random(255), random(255))
+
+.field-item-2
+  @include field
+  min-height: calc((100vh - 155px))
+  height: calc((100vh - 155px))
+  background-color: rgb(random(255), random(255), random(255))
+main
+  margin: 0 0 10px 0
+  padding: 0
+  height: fit-content
+
+footer
+  min-height: calc((100vh - 155px))
+  height: calc((100vh - 155px))
+
+.grid_12
+  margin-left: 0
+  margin-right: 0
+
+.field-1
+  background: url("https://home.cern/sites/home.web.cern.ch/files/2019-09/open_days_2019_2.jpg") 0 0 no-repeat
+  background-size: cover
+
+.field-2
+  display: flex
+  flex-direction: column
+  justify-content: flex-start
+  align-items: center
+  h1
+    margin: 20px 10px
+  .sub-anchor
+    margin-top: 20px
+    @include width-fit-content
+    margin-right: 100px
+
+.layer-container-1
+  background: url("http://cds.cern.ch/images/CERN-PHOTO-201905-117-9/file?size=medium") 0 0 no-repeat
+  background-size: cover
+  height: 232px
+  display: inline-block
+
+.layer-container-2
+  background: url("http://cds.cern.ch/images/CERN-PHOTO-201702-048-3/file?size=medium") 0 0 no-repeat
+  background-size: cover
+  height: 232px
+  display: inline-block
+
+.layer-container-3
+  background: url("http://cds.cern.ch/images/OPEN-PHO-CIVIL-2019-002-2/file?size=medium") 0 0 no-repeat
+  background-size: cover
+  height: 232px
+  display: inline-block
