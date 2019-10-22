@@ -1,6 +1,6 @@
-$min-width: 960px
+$min-width: 100vw
 $padding-left: 80px
-$width: 60px
+$width: 6.25vw
 
 body 
     min-width: $min-width
@@ -24,8 +24,8 @@ body
 .grid_12 
   display: inline
   float: left
-  margin-left: 10px
-  margin-right: 10px
+  margin-left: 1.041666666666667vw
+  margin-right: 1.041666666666667vw
 
 .push_1, .pull_1,
 .push_2, .pull_2,
@@ -48,7 +48,7 @@ body
 
 @for $i from 1 through 12
     .container_12 .grid_#{$i}
-        width:  $i * $width + ($i - 1) * 20px
+        width:  $i * $width + ($i - 1) * 2.083333333333333vw
 
 @for $i from 1 to 12
     .container_12 .prefix_#{$i}
