@@ -27,10 +27,36 @@
   -o-transition: all 0.3s ease-in-out 0s
   transition: all 0.3s ease-in-out 0s
 
+@mixin layer-transition
+  -webkit-transition: background-color 1000ms linear
+  -khtml-transition: background-color 1000ms linear
+  -moz-transition: background-color 1000ms linear
+  -ms-transition: background-color 1000ms linear
+  -o-transition: background-color 1000ms linear
+  transition: background-color 1000ms linear
+
+@mixin arrow
+  -webkit-transition: all 0.3s ease-in-out 0s
+  -khtml-transition: all 0.3s ease-in-out 0s
+  -moz-transition: all 0.3s ease-in-out 0s
+  -ms-transition: all 0.3s ease-in-out 0s
+  -o-transition: all 0.3s ease-in-out 0s
+  transition: all 0.3s ease-in-out 0s
+
 @mixin width-fit-content
   width: -webkit-fit-content
   width: -moz-fit-content
   width: fit-content
+
+@mixin layer
+  position: absolute 
+  width: 100% 
+  height: 100vh 
+  top: 0 
+  left: 0 
+  z-index: -1 
+  background-color: rgba(0, 0, 0, 0.2)
+  
 
 html *  
   margin: 0 
@@ -154,13 +180,8 @@ nav
     height: 100%   
 
 .background-100-layer  
-  position: absolute 
-  width: 100% 
-  height: 100vh 
-  top: -17px 
-  left: 0 
-  z-index: -1 
-  background-color: rgba(0, 0, 0, 0.2)   
+  @include layer
+  top: -17px
 
 .title-img 
   display: flex 
@@ -185,14 +206,12 @@ nav
 
 .field-item
   @include field
-  min-height: calc((100vh - 155px) / 2)
-  height: calc((100vh - 155px) / 2)
+  height: fit-content
   background-color: rgb(random(255), random(255), random(255))
 
 .field-item-2
   @include field
-  min-height: calc((100vh - 155px))
-  height: calc((100vh - 155px))
+  height: fit-content
   background-color: rgb(random(255), random(255), random(255))
 main
   margin: 0 0 10px 0
@@ -210,6 +229,8 @@ footer
 .field-1
   background: url("https://home.cern/sites/home.web.cern.ch/files/2019-09/open_days_2019_2.jpg") 0 0 no-repeat
   background-size: cover
+  min-height: calc((100vh - 155px) / 2)
+  height: calc((100vh - 155px) / 2)
 
 .field-2
   display: flex
@@ -222,21 +243,103 @@ footer
     margin-top: 20px
     @include width-fit-content
     margin-right: 100px
+    a
+      text-decoration: none
+      &:hover::after
+        right: -5px;
+        left: auto;
+      &::after
+        transition: all 0.3s ease-in-out 0s;
+        content: ">";
+        font-size: 16px;
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-font-smoothing: antialiased;
+        display: inline-block;
+        vertical-align: bottom;
+        position: absolute;
+        top: 1px;
+        right: 0px;
+        left: auto;
+        line-height: 19px;
+        width: 9px;
+        text-indent: 16px;
+
+.layer-2
+  display: flex
+  align-items: flex-end
+  @include layer
+  height: 100%
+  z-index: 1
+  &:hover
+    @include layer-transition
+    background-color: rgba(0, 0, 0, 0)
+       
 
 .layer-container-1
+  position: relative
   background: url("http://cds.cern.ch/images/CERN-PHOTO-201905-117-9/file?size=medium") 0 0 no-repeat
   background-size: cover
   height: 232px
   display: inline-block
 
 .layer-container-2
+  position: relative
   background: url("http://cds.cern.ch/images/CERN-PHOTO-201702-048-3/file?size=medium") 0 0 no-repeat
   background-size: cover
   height: 232px
   display: inline-block
 
 .layer-container-3
+  position: relative
   background: url("http://cds.cern.ch/images/OPEN-PHO-CIVIL-2019-002-2/file?size=medium") 0 0 no-repeat
   background-size: cover
   height: 232px
   display: inline-block
+
+.header-article
+  position: relative
+  bottom: 0
+  width: 80%
+  margin: 0 auto 7% auto 
+  a
+   text-decoration: none
+   color: white
+   font-size: 20px
+   font-weight: 900
+   text-shadow: 1px 0px 1px black, 0px 1px 1px black, -1px 0px 1px black, 0px -1px 1px black, 0 0 1px black 
+   &::before
+     transition: all 0.3s ease-in-out 0s
+     content: ">"
+     font-size: 16px
+     -moz-osx-font-smoothing: grayscale
+     -webkit-font-smoothing: antialiased
+     display: inline-block
+     vertical-align: bottom
+     position: absolute
+     top: 1px
+     left: -36px
+     line-height: 19px
+     width: 9px
+     text-indent: 16px
+        
+  ul
+    list-style: none
+    li
+      display: inline-block
+      color: white
+      margin-right: 6px
+      font-size: 14px
+      font-weight: 400
+      text-shadow: 1px 0px 1px black, 0px 1px 1px black, -1px 0px 1px black, 0px -1px 1px black, 0 0 1px black 
+      &::after
+        content: "|"
+        display: inline-block;
+        position: relative;
+        right: -6px;
+        top: -1px;
+
+  .content
+    &::after
+      content: none
+      
+
