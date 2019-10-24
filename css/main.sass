@@ -207,12 +207,12 @@ nav
 .field-item
   @include field
   height: fit-content
-  background-color: rgb(random(255), random(255), random(255))
+  background-color: white
 
 .field-item-2
   @include field
   height: fit-content
-  background-color: rgb(random(255), random(255), random(255))
+  background-color: rgba(28,44,56,1)
 main
   margin: 0 0 10px 0
   padding: 0
@@ -302,6 +302,11 @@ footer
   width: 80%
   margin: 0 auto 7% auto
   h3
+    white-space: nowrap
+    overflow: hidden
+    text-overflow: ellipsis
+    color: white
+
     a
       text-decoration: none
       color: white
@@ -337,8 +342,9 @@ footer
       display: inline-block
       color: white
       margin-right: 6px
-      font-size: 14px
-      font-weight: 400
+      font-family: sans-serif
+      font-size: 12px
+      font-weight: 200
       text-shadow: 1px 0px 1px black, 0px 1px 1px black, -1px 0px 1px black, 0px -1px 1px black, 0 0 1px black 
       &::after
         content: "|"
@@ -366,3 +372,54 @@ footer
   &:checked
     margin-left: 25px
     border: 1px solid blue
+
+.section-3
+  display: flex
+  align-items: center
+  flex-direction: column
+  h1 
+    color: white
+    font-weight: 500
+    font-size: 30px
+  
+.explore-wrapper
+  display: flex
+  flex-direction: row
+  justify-content: center
+  .explore-img-1
+    background-image: url("https://home.cern/sites/home.web.cern.ch/files/2018-10/Screenshot-vitual-tour.jpg")
+    background-repeat: no-repeat
+    background-position: center center
+    background-size: cover
+    background-color: blueviolet
+    position: relative
+    min-height: 428px
+    width: 337px
+    -webkit-transition: width 2s
+    transition: width 2s
+    &:hover
+      width: 495px
+
+  .explore-img-2
+    background-image: url("https://home.cern/sites/home.web.cern.ch/files/2018-10/Screenshot-visits-video.jpg")
+    background-repeat: no-repeat
+    background-position: center center
+    background-size: cover
+    background-color: blueviolet
+    position: relative
+    min-height: 428px
+    &:hover
+      transition: all 0.4s ease-in-out 0s
+        background-image: -webkit-gradient(linear,left top,left bottom,from(rgba(0,0,0,0)),to(rgba(0,0,0,0.9)))
+        background-image: -webkit-linear-gradient(top,rgba(0,0,0,0),rgba(0,0,0,0.9))
+        
+      
+  .explore-img-3
+    background-image: url("https://home.cern/sites/home.web.cern.ch/files/2018-10/CERN-EX-1212264-01.jpg")
+    background-repeat: no-repeat
+    background-position: center center
+    background-size: cover
+    background-color: blueviolet
+    position: relative
+    min-height: 428px
+     
