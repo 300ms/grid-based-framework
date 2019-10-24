@@ -409,36 +409,16 @@ footer {
   display: flex;
   align-items: center;
   flex-direction: column;
-}
-.section-3 h1 {
-  color: white;
-  font-weight: 500;
-  font-size: 30px;
+  padding: 20px 0 20px 0;
 }
 
-/*@mixin grow-shrink($name)
- * width: 450px
- * @include grow-shrink-2($name) */
-/*@mixin grow-shrink-2($name)
- * @if $name==1
- *  width: 450px
- *  .explore-img-2
- *    width: 250px */
-/*@if $name==1
- * .explore-img-1
- *  width: 475px
- * .explore-img-2
- *  width: 250px
- * /*@else if $name==2
- *  .explore-img-2
- *    width: 475px
- *  .explore-img-3
- *    width: 250px
- * /*@else if $name==3
- *  .explore-img-3
- *    width: 475px
- *  .explore-img-2
- *    width: 250px */
+.header-sections {
+  color: white;
+  font-weight: 600;
+  font-size: 39px;
+  margin-bottom: 20px;
+}
+
 .explore-img-1 .layer-2 svg {
   position: relative;
   bottom: 46%;
