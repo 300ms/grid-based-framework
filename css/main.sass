@@ -56,7 +56,6 @@
   left: 0 
   z-index: -1 
   background-color: rgba(0, 0, 0, 0.2)
-  
 
 html *  
   margin: 0 
@@ -381,9 +380,54 @@ footer
     color: white
     font-weight: 500
     font-size: 30px
-  
+
+/*@mixin grow-shrink($name)
+  width: 450px
+  @include grow-shrink-2($name)
+
+/*@mixin grow-shrink-2($name)
+  @if $name==1
+    width: 450px
+    .explore-img-2
+      width: 250px
+/*@if $name==1
+  .explore-img-1
+    width: 475px
+  .explore-img-2
+    width: 250px
+  /*@else if $name==2
+    .explore-img-2
+      width: 475px
+    .explore-img-3
+      width: 250px
+  /*@else if $name==3
+    .explore-img-3
+      width: 475px
+    .explore-img-2
+      width: 250px
+.explore-img-1
+  .layer-2
+    svg
+      position: relative
+      bottom: 46%
+      left: 46%
+      width: 60px
+      height: 60px
+      fill: white
+
+.explore-img-2
+  .layer-2
+    svg
+      position: relative
+      bottom: 43%
+      left: 43%
+      width: 60px
+      height: 60px
+      fill: white
+
 .explore-wrapper
   display: flex
+  width: 1113px
   flex-direction: row
   justify-content: center
   .explore-img-1
@@ -396,9 +440,9 @@ footer
     min-height: 428px
     width: 337px
     -webkit-transition: width 2s
-    transition: width 2s
+    transition: width 1s
     &:hover
-      width: 495px
+      width: 450px
 
   .explore-img-2
     background-image: url("https://home.cern/sites/home.web.cern.ch/files/2018-10/Screenshot-visits-video.jpg")
@@ -408,12 +452,12 @@ footer
     background-color: blueviolet
     position: relative
     min-height: 428px
+    width: 337px
+    -webkit-transition: width 2s
+    transition: width 1s
     &:hover
-      transition: all 0.4s ease-in-out 0s
-        background-image: -webkit-gradient(linear,left top,left bottom,from(rgba(0,0,0,0)),to(rgba(0,0,0,0.9)))
-        background-image: -webkit-linear-gradient(top,rgba(0,0,0,0),rgba(0,0,0,0.9))
-        
-      
+      width: 450px
+
   .explore-img-3
     background-image: url("https://home.cern/sites/home.web.cern.ch/files/2018-10/CERN-EX-1212264-01.jpg")
     background-repeat: no-repeat
@@ -422,4 +466,8 @@ footer
     background-color: blueviolet
     position: relative
     min-height: 428px
-     
+    width: 337px
+    -webkit-transition: width 1s
+    transition: width 2s
+    &:hover
+      width: 450px
