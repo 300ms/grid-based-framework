@@ -11,6 +11,48 @@
   span
     color: #ccc
 
+@mixin sub-anchor-after
+  transition: all 0.3s ease-in-out 0s
+  content: ">"
+  font-size: 16px
+  -moz-osx-font-smoothing: grayscale
+  -webkit-font-smoothing: antialiased
+  display: inline-block
+  vertical-align: bottom
+  position: absolute
+  top: 1px
+  right: 0
+  left: auto
+  line-height: 19px
+  width: 9px
+  text-indent: 16px
+
+@mixin anchor-before
+  content: ">"
+  -webkit-transition: all 0.6s ease-in-out 0s
+  -khtml-transition: all 0.6s ease-in-out 0s
+  -moz-transition: all 0.6s ease-in-out 0s
+  -ms-transition: all 0.6s ease-in-out 0s
+  -o-transition: all 0.6s ease-in-out 0s
+  transition: all 0.6s ease-in-out 0s
+  -moz-osx-font-smoothing: grayscale
+  -webkit-font-smoothing: antialiased
+  display: inline-block
+  vertical-align: bottom
+  position: absolute
+  top: -2px
+  left: -26px
+  right: auto
+  line-height: 25px
+  width: 12px
+
+@mixin li-after
+  content: "|"
+  display: inline-block
+  position: relative
+  right: -6px
+  top: -1px
+
 @mixin field
   transition: all 0.5s ease-out 0s
   position: relative
@@ -248,20 +290,7 @@ footer
         right: -5px
         left: auto
       &::after
-        transition: all 0.3s ease-in-out 0s
-        content: ">"
-        font-size: 16px
-        -moz-osx-font-smoothing: grayscale
-        -webkit-font-smoothing: antialiased
-        display: inline-block
-        vertical-align: bottom
-        position: absolute
-        top: 1px
-        right: 0
-        left: auto
-        line-height: 19px
-        width: 9px
-        text-indent: 16px
+        @include sub-anchor-after
 
 .layer-2
   display: flex
@@ -315,25 +344,8 @@ footer
       &:hover::before
         left: -21px
         right: auto
-
       &::before
-        content: ">"
-        -webkit-transition: all 0.6s ease-in-out 0s
-        -khtml-transition: all 0.6s ease-in-out 0s
-        -moz-transition: all 0.6s ease-in-out 0s
-        -ms-transition: all 0.6s ease-in-out 0s
-        -o-transition: all 0.6s ease-in-out 0s
-        transition: all 0.6s ease-in-out 0s
-        -moz-osx-font-smoothing: grayscale
-        -webkit-font-smoothing: antialiased
-        display: inline-block
-        vertical-align: bottom
-        position: absolute
-        top: -2px
-        left: -26px
-        right: auto
-        line-height: 25px
-        width: 12px
+        @include anchor-before
 
   ul
     list-style: none
@@ -346,16 +358,12 @@ footer
       font-weight: 200
       text-shadow: 1px 0px 1px black, 0px 1px 1px black, -1px 0px 1px black, 0px -1px 1px black, 0 0 1px black 
       &::after
-        content: "|"
-        display: inline-block
-        position: relative
-        right: -6px
-        top: -1px
+        @include li-after
 
   .content
     &::after
       content: none
-      
+
 
 .owl-dot
   border-radius: 50%
@@ -383,6 +391,7 @@ footer
   font-weight: 600
   font-size: 39px
   margin-bottom: 20px
+  text-transform: uppercase
 
 .explore-img-1
   .layer-2
@@ -457,26 +466,76 @@ footer
   align-items: center
   overflow: hidden
   width: 100%
+  margin-bottom: 0
   h1
     color: black
   .window
     position: relative
     overflow: hidden
-    height: 200px
-    padding: 0 80px 
+    height: 300px
+    padding: 0 80px
+    .sub-anchor
+      float: right
+      margin: 30px 0 0 0
+
+      a
+        display: block
+        text-decoration: none
+        position: relative
+        &:hover::after
+          right: 8px
+          left: auto
+        &::after
+          @include sub-anchor-after
+          text-indent: 0
+          right: 15px
     .all-content
-      position: absolute
+      position: relative
       transform: translate3d(0px, 0px, 0px)
       transition: all 0s ease 0s
       width: 2820px
       height: 200px
-      float: left 
       .inside-part
-        margin: 4px
-        background-color: blue
+        margin: 4px 1.2%
+        padding: 20px 32px
+        min-height: 210px
+        ul
+          list-style: none
+          display: flex
+          align-items: center
+          li::after
+            @include li-after
+            right: 0
+            top: 0
+            margin: 6px
+          #content2
+            &::after
+              content: none
+        .date1, .date2
+          font-size: 32px
+          text-transform: uppercase
+          line-height: 35px
+          font-weight: 700
+        .date3
+          font-size: 32px
+          text-transform: uppercase
+          line-height: 35px
         .events-headers
            margin: 1rem 0
            a
              text-decoration: none
              color: #2574b9
+             position: relative
+             &:hover::before
+               left: 0
+             &::before
+                @include anchor-before
+                position: absolute
+                text-indent: -15px
+                top: 0
+                left: -10px
 
+.sub-anchor
+  a
+    color: #0855a0
+    font-weight: bold
