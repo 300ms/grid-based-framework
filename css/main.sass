@@ -476,19 +476,19 @@ footer
     padding: 0 80px
     .sub-anchor
       float: right
-      margin: 30px 0 0 0
+      margin: 0
 
       a
         display: block
         text-decoration: none
         position: relative
         &:hover::after
-          right: 8px
+          right: -17%
           left: auto
         &::after
           @include sub-anchor-after
-          text-indent: 0
-          right: 15px
+          text-indent: 5%
+          right: -10%
     .all-content
       position: relative
       transform: translate3d(0px, 0px, 0px)
@@ -539,3 +539,67 @@ footer
   a
     color: #0855a0
     font-weight: bold
+
+.section-5
+  display: flex
+  flex-direction: column
+  align-items: center
+  .key-wrapper
+    display: flex
+    background-color: red
+    height: fit-content
+    min-height: 428px
+    justify-content: space-between
+    padding: 0 2%
+    .big-picture
+      display: flex
+      margin: 0
+      margin-right: 2.5%
+      .pic-1
+        position: relative
+        min-width: 110%
+        max-width: 1140px
+        height: 100%
+        background: url("https://home.cern/sites/home.web.cern.ch/files/2018-10/ATLAS-PHO-EVENTS-2014-010-1.jpg") center center no-repeat
+        background-size: cover
+        width: 370.688px
+        -webkit-transition: width 2s
+        transition: width 1s
+        &:hover
+          width: 495px
+
+    .two-pictures
+      display:flex
+      flex-direction: column
+      height: 100%
+      margin: 0
+      .pic-2
+        position: relative
+        height: 0
+        padding-top: 66.666%
+        width: 101%
+        background: url("https://home.cern/sites/home.web.cern.ch/files/2018-10/CERN-AC-0911188-01.jpg") center center no-repeat
+        background-size: cover
+        margin-bottom: 10px
+      .pic-3
+        position: relative
+        height: 0
+        padding-top: 66.666%
+        width: 101%
+        background: url("https://home.cern/sites/home.web.cern.ch/files/2018-10/CERN-GE-9407011-31.jpg") center center no-repeat
+        background-size: cover
+      .pic-4
+        position: relative
+        height: 0
+        padding-top: 66.666%
+        width: 101%
+        background: url("https://home.cern/sites/home.web.cern.ch/files/2018-10/CERN-EX-23296-1.jpg") center center no-repeat
+        background-size: cover
+        margin-bottom: 10px
+      .pic-5
+        position: relative
+        height: 0
+        padding-top: 66.666%
+        width: 101%
+        background: url("https://home.cern/sites/home.web.cern.ch/files/2018-10/CERN-PHOTO-201708-196-10.jpg") center center no-repeat
+        background-size: cover
