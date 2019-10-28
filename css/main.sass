@@ -11,115 +11,605 @@
   span
     color: #ccc
 
-html
-  overflow: scroll
+@mixin flex-imgs
+  height: 210px
+  min-height: 210px
+  margin: 0 5px
+  display: flex
+  flex: 1 1 33%
+  background-size: cover
 
-html *
-  margin: 0
-  padding: 0
-  box-sizing: border-box
 
-header
+@mixin sub-anchor-after
+  transition: all 0.3s ease-in-out 0s
+  content: ">"
+  font-size: 16px
+  -moz-osx-font-smoothing: grayscale
+  -webkit-font-smoothing: antialiased
+  display: inline-block
+  vertical-align: bottom
+  position: absolute
+  top: 1px
+  right: 0
+  left: auto
+  line-height: 19px
+  width: 9px
+  text-indent: 16px
+
+@mixin anchor-before
+  content: ">"
+  -webkit-transition: all 0.6s ease-in-out 0s
+  -khtml-transition: all 0.6s ease-in-out 0s
+  -moz-transition: all 0.6s ease-in-out 0s
+  -ms-transition: all 0.6s ease-in-out 0s
+  -o-transition: all 0.6s ease-in-out 0s
+  transition: all 0.6s ease-in-out 0s
+  -moz-osx-font-smoothing: grayscale
+  -webkit-font-smoothing: antialiased
+  display: inline-block
+  vertical-align: bottom
+  position: absolute
+  top: -2px
+  left: -26px
+  right: auto
+  line-height: 25px
+  width: 12px
+
+@mixin li-after
+  content: "|"
+  display: inline-block
+  position: relative
+  right: -6px
+  top: -1px
+
+@mixin field
+  transition: all 0.5s ease-out 0s
+  position: relative
+  -webkit-transition: all 0.5s ease-out 0s
+  -moz-transition: all 0.5s ease-out 0s
+  -o-transition: all 0.5s ease-out 0s
+  margin-bottom: 10px
+
+@mixin anchor-transition
+  -webkit-transition: all 0.3s ease-in-out 0s
+  -khtml-transition: all 0.3s ease-in-out 0s
+  -moz-transition: all 0.3s ease-in-out 0s
+  -ms-transition: all 0.3s ease-in-out 0s
+  -o-transition: all 0.3s ease-in-out 0s
+  transition: all 0.3s ease-in-out 0s
+
+@mixin layer-transition
+  -webkit-transition: background-color 1000ms linear
+  -khtml-transition: background-color 1000ms linear
+  -moz-transition: background-color 1000ms linear
+  -ms-transition: background-color 1000ms linear
+  -o-transition: background-color 1000ms linear
+  transition: background-color 1000ms linear
+
+@mixin arrow
+  -webkit-transition: all 0.3s ease-in-out 0s
+  -khtml-transition: all 0.3s ease-in-out 0s
+  -moz-transition: all 0.3s ease-in-out 0s
+  -ms-transition: all 0.3s ease-in-out 0s
+  -o-transition: all 0.3s ease-in-out 0s
+  transition: all 0.3s ease-in-out 0s
+
+@mixin width-fit-content
+  width: -webkit-fit-content
+  width: -moz-fit-content
+  width: fit-content
+
+@mixin layer
+  position: absolute 
+  width: 100% 
+  height: 100vh 
+  top: 0 
+  left: 0 
+  z-index: -1 
+  background-color: rgba(0, 0, 0, 0.2)
+
+html *  
+  margin: 0 
+  padding: 0 
+  -webkit-box-sizing: border-box 
+  box-sizing: border-box   
+
+body
   width: 100%
+
+header  
+  width: 100% 
   height: 113px
 
-.header-container
-  background-color: rgb(34, 34, 34)
+.header-container  
+  background-color: #222222 
   padding: 0 5%
+  display: flex
+  flex-wrap: wrap
+  justify-content: space-between
+  height: 43px
 
-.header-anchors
-  @include h-anchors
+.header-anchors  
+  background-color: transparent 
+  font-size: 14px 
+  color: #fff 
+  border-radius: 5px 
+  padding: 5px
+  text-decoration: none
+  &:hover
+    background-color: #000 
+    color: #fff 
+    text-decoration: none   
+    span
+      color: #ccc
 
-.header-left
-  height: 100%
+.header-left  
+  height: 100%   
 
-.h1
-  height: 100%
+.header-right
+  display: flex
 
-#header-span-1
-  color: #999
+.h1  
+  height: 100% 
+  display: flex 
+  align-items: center   
 
-#header-span:hover
-  color: #fff
+.h1-2 
+  display: inline-flex 
+  align-items: center 
 
-nav
-  display: block
-  min-height: 70px
-  padding: 20px 5% 15px
+#header-span-1  
+  color: #999   
 
-.nav-left
-  width: 100%
-  padding: 10px
+#header-span:hover  
+  color: #fff   
+
+nav  
+  display: flex 
+  min-height: 70px 
+  padding: 20px 5% 15px   
+
+.nav-left  
+  width: 100% 
+  padding: 10px   
   img
-    width: auto
-    height: auto
-    max-height: 76px
+    width: auto 
+    height: auto 
+    max-height: 76px   
 
-.nav-right
-  width: 100%
-  height: 50px
+.nav-right  
+  width: 100% 
+  height: 50px   
+  ul
+    list-style: none
+    display: flex 
+    justify-content: flex-end
+    li
+      margin: 0 15px   
+      a
+        display: block 
+        text-transform: uppercase 
+        text-shadow: 0 0 0.8px black, 0 0 0.8px black, 0 0 0.8px black, 0 0 0.8px black, 0 0 0.8px black 
+        background: transparent 
+        color: #efeeec 
+        font-size: 16px 
+        font-weight: 600 
+        font-family: "opensans-bold", sans-serif 
+        padding: 0 
+        line-height: 76px 
+        position: relative 
+        letter-spacing: 0.5px 
+        @include anchor-transition
+        text-decoration: none
+        &::after
+          @include anchor-transition
+          content: "" 
+          display: block 
+          height: 2px 
+          position: absolute 
+          bottom: 19px 
+          left: 0 
+          width: 0 
+          background: #f1862e   
+        &:hover
+          color: #efeeec 
+          text-decoration: none   
+          &:hover::after
+            width: 100%   
+
+.background-100  
+  position: relative 
+  width: 100% 
+  height: 100vh 
+  top: -131px 
+  left: 0 
+  z-index: -2
+  margin-bottom: -131px
+  img
+    width: 100%
+    height: 100%   
+
+.background-100-layer  
+  @include layer
+  top: -17px
+
+.title-img 
+  display: flex 
+  flex-direction: column 
+  position: absolute 
+  z-index: 10 
+  padding: 5% 10% 
+  top: 50% 
+  right: 0 
+  left: 0 
+  margin: 0 auto 
+  font-size: 36px 
+  font-weight: 700 
+  color: white 
+  text-shadow: 1px 0px 1px black, 0px 1px 1px black, -1px 0px 1px black, 0px -1px 1px black, 0 0 1px black   
+
+.background-blue 
+  background-color: #2980b9 
+  @include width-fit-content
+  padding: 0 5px 5px 5px 
+  line-height: 1
+
+.field-item
+  @include field
+  height: fit-content
+  background-color: white
+
+.field-item-2
+  @include field
+  height: fit-content
+  background-color: rgba(28,44,56,1)
+main
+  margin: 0 0 10px 0
+  padding: 0
+  height: fit-content
+
+footer
+  min-height: calc((100vh - 155px))
+  height: calc((100vh - 155px))
+
+.grid_12
+  margin-left: 0
+  margin-right: 0
+
+.field-1
+  background: url("https://home.cern/sites/home.web.cern.ch/files/2019-09/open_days_2019_2.jpg") 0 0 no-repeat
+  background-size: cover
+  min-height: calc((100vh - 155px) / 2)
+  height: calc((100vh - 155px) / 2)
+  display: flex
+  align-items: center
+  .topic-tittle
+    background-color: rgb(255, 255, 255)
+    margin: 8px
+    width: calc(30% - 16px)
+    display: flex
+    align-items: center
+    float: left
+    padding: 2% 5%
+  .header-article
+    margin: 0
+    h3
+      margin-bottom: 4%
+      width: fit-content
+
+
+.field-2
+  display: flex
+  flex-direction: column
+  justify-content: flex-start
+  align-items: center
+  h1
+    margin: 20px 10px
+  .sub-anchor
+    margin-top: 20px
+    @include width-fit-content
+    margin-right: 100px
+    a
+      text-decoration: none
+      &:hover::after
+        right: -5px
+        left: auto
+      &::after
+        @include sub-anchor-after
+
+.layer-2
+  display: flex
+  align-items: flex-end
+  @include layer
+  height: 100%
+  z-index: 1
+  &:hover
+    @include layer-transition
+    background-color: rgba(0, 0, 0, 0)
+       
+
+.layer-container-1
+  position: relative
+  background: url("http://cds.cern.ch/images/CERN-PHOTO-201905-117-9/file?size=medium") 0 0 no-repeat
+  background-size: cover
+  height: 232px
+  display: inline-block
+
+.layer-container-2
+  position: relative
+  background: url("http://cds.cern.ch/images/CERN-PHOTO-201702-048-3/file?size=medium") 0 0 no-repeat
+  background-size: cover
+  height: 232px
+  display: inline-block
+
+.layer-container-3
+  position: relative
+  background: url("http://cds.cern.ch/images/OPEN-PHO-CIVIL-2019-002-2/file?size=medium") 0 0 no-repeat
+  background-size: cover
+  height: 232px
+  display: inline-block
+
+.header-article
+  position: relative
+  bottom: 0
+  width: 80%
+  margin: 0 auto 7% auto
+  h3
+    white-space: nowrap
+    overflow: hidden
+    text-overflow: ellipsis
+    color: white
+
+    a
+      text-decoration: none
+      color: white
+      font-size: 20px
+      font-weight: 900
+      text-shadow: 1px 0 1px black, 0 1px 1px black, -1px 0 1px black, 0 -1px 1px black, 0 0 1px black
+      &:hover::before
+        left: -21px
+        right: auto
+      &::before
+        @include anchor-before
+
   ul
     list-style: none
     li
-      margin: 0 15px
+      display: inline-block
+      color: white
+      margin-right: 6px
+      font-family: sans-serif
+      font-size: 12px
+      font-weight: 200
+      text-shadow: 1px 0px 1px black, 0px 1px 1px black, -1px 0px 1px black, 0px -1px 1px black, 0 0 1px black 
+      &::after
+        @include li-after
+    .content
+      &::after
+        content: none
+
+.owl-dot
+  border-radius: 50%
+  height: 18px
+  margin: 10px
+  width: 18px
+  position: relative
+  top: 2px
+  display: inline-block
+
+#scales1
+  background-color: red
+  &:checked
+    margin-left: 25px
+    border: 1px solid blue
+
+.section-3
+  display: flex
+  align-items: center
+  flex-direction: column
+  padding: 20px 0 20px 0
+  .ew-2
+    justify-content: center
+  .quad-wrapper
+    display: flex
+    flex-wrap: wrap
+    margin-left: 5px
+    align-content: space-between
+.header-sections
+  color: white
+  font-weight: 600
+  font-size: 39px
+  margin-bottom: 20px
+  text-transform: uppercase
+
+.explore-img-1
+  .layer-2
+    svg
+      position: relative
+      bottom: 46%
+      left: 46%
+      width: 60px
+      height: 60px
+      fill: white
+
+.explore-img-2
+  .layer-2
+    svg
+      position: relative
+      bottom: 43%
+      left: 43%
+      width: 60px
+      height: 60px
+      fill: white
+
+.explore-wrapper
+  display: flex
+  flex-direction: row
+  justify-content: center
+  .explore-img-1
+    background-image: url("https://home.cern/sites/home.web.cern.ch/files/2018-10/Screenshot-vitual-tour.jpg")
+    background-repeat: no-repeat
+    background-position: center center
+    background-size: cover
+    background-color: blueviolet
+    position: relative
+    min-height: 428px
+    width: 337px
+    -webkit-transition: width 2s
+    transition: width 1s
+    &:hover
+      width: 450px
+
+  .explore-img-2
+    background-image: url("https://home.cern/sites/home.web.cern.ch/files/2018-10/Screenshot-visits-video.jpg")
+    background-repeat: no-repeat
+    background-position: center center
+    background-size: cover
+    background-color: blueviolet
+    position: relative
+    min-height: 428px
+    width: 337px
+    -webkit-transition: width 2s
+    transition: width 1s
+    &:hover
+      width: 450px
+
+  .explore-img-3
+    background-image: url("https://home.cern/sites/home.web.cern.ch/files/2018-10/CERN-EX-1212264-01.jpg")
+    background-repeat: no-repeat
+    background-position: center center
+    background-size: cover
+    background-color: blueviolet
+    position: relative
+    min-height: 428px
+    width: 337px
+    -webkit-transition: flex-basis 2s ease-in-out
+    transition: flex-basis 1s ease-in-out
+    &:hover
+      flex-basis: 50%
+
+  .pic-1
+    background: url("https://home.cern/sites/home.web.cern.ch/files/2018-10/ATLAS-PHO-EVENTS-2014-010-1.jpg") center center no-repeat
+    background-size: cover
+    display: flex
+    width: 370px
+    margin: 0
+    &:hover
+      width: 500px
+
+
+  .pic-2
+    background: url("https://home.cern/sites/home.web.cern.ch/files/2018-10/CERN-AC-0911188-01.jpg") center center no-repeat
+    @include flex-imgs
+
+
+  .pic-3
+    background: url("https://home.cern/sites/home.web.cern.ch/files/2018-10/CERN-GE-9407011-31.jpg") center center no-repeat
+    @include flex-imgs
+
+
+  .pic-4
+    background: url("https://home.cern/sites/home.web.cern.ch/files/2018-10/CERN-EX-23296-1.jpg") center center no-repeat
+    @include flex-imgs
+
+  .pic-5
+    background: url("https://home.cern/sites/home.web.cern.ch/files/2018-10/CERN-PHOTO-201708-196-10.jpg") center center no-repeat
+    @include flex-imgs
+
+.section-4 
+  display: flex
+  flex-direction: column
+  align-items: center
+  overflow: hidden
+  width: 100%
+  margin-bottom: 0
+  h1
+    color: black
+  .window
+    position: relative
+    overflow: hidden
+    height: 300px
+    padding: 0 80px
+    .sub-anchor
+      float: right
+      margin: 0
+
       a
         display: block
-        text-transform: uppercase
-        text-shadow: 0 0 0.8px black, 0 0 0.8px black, 0 0 0.8px black, 0 0 0.8px black, 0 0 0.8px black
-        background: transparent
-        color: #efeeec
-        font-size: 16px
-        font-weight: 600
-        font-family: "opensans-bold", sans-serif
-        padding: 0
-        line-height: 76px
+        text-decoration: none
         position: relative
-        letter-spacing: 0.5px
-        -webkit-transition: all 0.3s ease-in-out 0s
-        -khtml-transition: all 0.3s ease-in-out 0s
-        -moz-transition: all 0.3s ease-in-out 0s
-        -ms-transition: all 0.3s ease-in-out 0s
-        -o-transition: all 0.3s ease-in-out 0s
-        transition: all 0.3s ease-in-out 0s
-
+        &:hover::after
+          right: -17%
+          left: auto
         &::after
-          -webkit-transition: width 0.3s ease-in-out 0s
-          -khtml-transition: width 0.3s ease-in-out 0s
-          -moz-transition: width 0.3s ease-in-out 0s
-          -ms-transition: width 0.3s ease-in-out 0s
-          -o-transition: width 0.3s ease-in-out 0s
-          transition: width 0.3s ease-in-out 0s
-          content: ""
-          display: block
-          height: 2px
-          position: absolute
-          bottom: 19px
-          left: 0
-          width: 0
-          background: #f1862e
+          @include sub-anchor-after
+          text-indent: 5%
+          right: -10%
+    .all-content
+      position: relative
+      transform: translate3d(0px, 0px, 0px)
+      transition: all 0s ease 0s
+      width: 2820px
+      height: 200px
+      .inside-part
+        margin: 4px 1.2%
+        padding: 20px 32px
+        min-height: 210px
+        ul
+          list-style: none
+          display: flex
+          align-items: center
+          li::after
+            @include li-after
+            right: 0
+            top: 0
+            margin: 6px
+          #content2
+            &::after
+              content: none
+        .date1, .date2
+          font-size: 32px
+          text-transform: uppercase
+          line-height: 35px
+          font-weight: 700
+        .date3
+          font-size: 32px
+          text-transform: uppercase
+          line-height: 35px
+.events-headers
+  margin: 1rem 0
+  a
+    text-decoration: none
+    color: #2574b9
+    position: relative
+    &:hover::before
+      left: 0
+    &::before
+      @include anchor-before
+      position: absolute
+      text-indent: -15px
+      top: 0
+      left: -10px
+  ul
+    list-style: none
+    li
+      display: inline-block
+      color: black
+      margin-right: 6px
+      font-family: sans-serif
+      font-size: 12px
+      font-weight: 200
+      &::after
+        @include li-after
+    .content
+      &::after
+        content: none
+  .normal-anchor
+    margin-bottom: 5%
 
-        &:hover
-          color: #efeeec
-          text-decoration: none
-          &::after
-            width: 100%
 
-.background-100
-  position: relative
-  width: 100vw
-  height: 100vh
-  top: -131px
-  left: 0
-  z-index: -2
-  img
-    width: 100%
-    height: 100%
 
-.background-100-layer
-  position: absolute
-  width: 100vw
-  height: 100vh
-  top: -17px
-  left: 0
-  z-index: -1
-  background-color: rgba(0, 0, 0, 0.2)
+.sub-anchor
+  a
+    color: #0855a0
+    font-weight: bold
