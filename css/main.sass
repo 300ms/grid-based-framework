@@ -11,6 +11,15 @@
   span
     color: #ccc
 
+@mixin flex-imgs
+  height: 210px
+  min-height: 210px
+  margin: 0 5px
+  display: flex
+  flex: 1 1 33%
+  background-size: cover
+
+
 @mixin sub-anchor-after
   transition: all 0.3s ease-in-out 0s
   content: ">"
@@ -388,9 +397,9 @@ footer
   .ew-2
     justify-content: center
   .quad-wrapper
-    display: inline-flex
+    display: flex
     flex-wrap: wrap
-    justify-content: space-around
+    margin-left: 5px
     align-content: space-between
 .header-sections
   color: white
@@ -421,7 +430,6 @@ footer
 
 .explore-wrapper
   display: flex
-  width: 1113px
   flex-direction: row
   justify-content: center
   .explore-img-1
@@ -461,14 +469,15 @@ footer
     position: relative
     min-height: 428px
     width: 337px
-    -webkit-transition: width 1s
-    transition: width 2s
+    -webkit-transition: flex-basis 2s ease-in-out
+    transition: flex-basis 1s ease-in-out
     &:hover
-      width: 450px
+      flex-basis: 50%
 
   .pic-1
     background: url("https://home.cern/sites/home.web.cern.ch/files/2018-10/ATLAS-PHO-EVENTS-2014-010-1.jpg") center center no-repeat
     background-size: cover
+    display: flex
     width: 370px
     margin: 0
     &:hover
@@ -477,27 +486,21 @@ footer
 
   .pic-2
     background: url("https://home.cern/sites/home.web.cern.ch/files/2018-10/CERN-AC-0911188-01.jpg") center center no-repeat
-    height: 200px
-    min-height: 200px
-    margin: 0
+    @include flex-imgs
+
 
   .pic-3
     background: url("https://home.cern/sites/home.web.cern.ch/files/2018-10/CERN-GE-9407011-31.jpg") center center no-repeat
-    height: 200px
-    min-height: 200px
-    margin: 0
+    @include flex-imgs
+
 
   .pic-4
     background: url("https://home.cern/sites/home.web.cern.ch/files/2018-10/CERN-EX-23296-1.jpg") center center no-repeat
-    height: 200px
-    min-height: 200px
-    margin: 0
+    @include flex-imgs
 
   .pic-5
     background: url("https://home.cern/sites/home.web.cern.ch/files/2018-10/CERN-PHOTO-201708-196-10.jpg") center center no-repeat
-    height: 200px
-    min-height: 200px
-    margin: 0
+    @include flex-imgs
 
 .section-4 
   display: flex

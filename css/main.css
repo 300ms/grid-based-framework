@@ -415,9 +415,9 @@ footer {
   justify-content: center;
 }
 .section-3 .quad-wrapper {
-  display: inline-flex;
+  display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  margin-left: 5px;
   align-content: space-between;
 }
 
@@ -449,7 +449,6 @@ footer {
 
 .explore-wrapper {
   display: flex;
-  width: 1113px;
   flex-direction: row;
   justify-content: center;
 }
@@ -492,15 +491,16 @@ footer {
   position: relative;
   min-height: 428px;
   width: 337px;
-  -webkit-transition: width 1s;
-  transition: width 2s;
+  -webkit-transition: flex-basis 2s ease-in-out;
+  transition: flex-basis 1s ease-in-out;
 }
 .explore-wrapper .explore-img-3:hover {
-  width: 450px;
+  flex-basis: 50%;
 }
 .explore-wrapper .pic-1 {
   background: url("https://home.cern/sites/home.web.cern.ch/files/2018-10/ATLAS-PHO-EVENTS-2014-010-1.jpg") center center no-repeat;
   background-size: cover;
+  display: flex;
   width: 370px;
   margin: 0;
 }
@@ -509,27 +509,39 @@ footer {
 }
 .explore-wrapper .pic-2 {
   background: url("https://home.cern/sites/home.web.cern.ch/files/2018-10/CERN-AC-0911188-01.jpg") center center no-repeat;
-  height: 200px;
-  min-height: 200px;
-  margin: 0;
+  height: 210px;
+  min-height: 210px;
+  margin: 0 5px;
+  display: flex;
+  flex: 1 1 33%;
+  background-size: cover;
 }
 .explore-wrapper .pic-3 {
   background: url("https://home.cern/sites/home.web.cern.ch/files/2018-10/CERN-GE-9407011-31.jpg") center center no-repeat;
-  height: 200px;
-  min-height: 200px;
-  margin: 0;
+  height: 210px;
+  min-height: 210px;
+  margin: 0 5px;
+  display: flex;
+  flex: 1 1 33%;
+  background-size: cover;
 }
 .explore-wrapper .pic-4 {
   background: url("https://home.cern/sites/home.web.cern.ch/files/2018-10/CERN-EX-23296-1.jpg") center center no-repeat;
-  height: 200px;
-  min-height: 200px;
-  margin: 0;
+  height: 210px;
+  min-height: 210px;
+  margin: 0 5px;
+  display: flex;
+  flex: 1 1 33%;
+  background-size: cover;
 }
 .explore-wrapper .pic-5 {
   background: url("https://home.cern/sites/home.web.cern.ch/files/2018-10/CERN-PHOTO-201708-196-10.jpg") center center no-repeat;
-  height: 200px;
-  min-height: 200px;
-  margin: 0;
+  height: 210px;
+  min-height: 210px;
+  margin: 0 5px;
+  display: flex;
+  flex: 1 1 33%;
+  background-size: cover;
 }
 
 .section-4 {
